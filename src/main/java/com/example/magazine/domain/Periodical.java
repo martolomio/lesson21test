@@ -1,12 +1,18 @@
 package com.example.magazine.domain;
 
+import javax.persistence.*;
 import java.util.Objects;
-
+@Entity
+@Table(name = "periodical")
 public class Periodical {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String description;
+    @Column(name = "price")
     private Double price;
 
     public Periodical() {

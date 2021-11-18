@@ -1,15 +1,26 @@
 package com.example.magazine.domain;
 
+import javax.persistence.*;
 import java.util.Objects;
-
+@Entity
+@Table(name = "user")
 public class User {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private  Integer id;
+    @Column(name = "email")
     private String email;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+
+    @Enumerated(EnumType.STRING)
     private UserRole role;
+
+    @Column(name = "password")
     private String password;
+    private String passwordConfirm;
 
     public User() {
     }
@@ -37,6 +48,14 @@ public class User {
         this.lastName = lastName;
         this.role = role;
         this.password = password;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 
     public String getPassword() {

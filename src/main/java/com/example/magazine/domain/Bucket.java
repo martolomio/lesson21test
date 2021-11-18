@@ -1,13 +1,19 @@
 package com.example.magazine.domain;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
-
+@Entity
+@Table(name = "bucket")
 public class Bucket {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Column(name = "user_Id")
     private Integer userId;
+    @Column(name = "product_id")
     private Integer productId;
+    @Column(name = "purchase_date")
     private Date purchaseDate;
 
     public Bucket() {
