@@ -48,7 +48,6 @@ public class UserController {
 
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.");
-
         return "login";
     }
 
@@ -56,7 +55,6 @@ public class UserController {
     public ModelAndView welcome() {
         ModelAndView map = new ModelAndView("home");
         map.addObject("periodicals", periodicalsService.getAllPeriodicals());
-
         return map;
     }
 
